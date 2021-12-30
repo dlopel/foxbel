@@ -1,0 +1,25 @@
+.main-header {
+    position: fixed;
+    z-index: var(--z-fixed);
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--primary-color);
+    padding-top: var(--header-padding);
+    padding-bottom: var(--header-padding);
+}
+
+.main-header__content {
+    position: relative;
+    height: 100%;
+    outline: 2px solid blue;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 100%;
+}
+
+.main-header__buttons-container {
+    display: flex;
+    outline: 2px solid yellow;
+    justify-content: flex-end;
+    align-items: center;    
+}

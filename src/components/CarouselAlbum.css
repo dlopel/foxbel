@@ -1,0 +1,22 @@
+.carousel-album__dots {
+    position: absolute;
+    bottom: 3%;
+    left: 80%;
+}
+
+.carousel-album__dot {
+    display: inline-block;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    width: .75rem;
+    height: .75rem;
+    margin-right: .5rem;
+}
+
+.carousel-album__dot:last-child {
+    margin-right: 0;
+}
+
+.carousel-album__dot.active {
+    background-color: var(--soft-grey);
+}
