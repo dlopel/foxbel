@@ -8,7 +8,6 @@
     height: 100%;
     transition: margin .5s;
     background-color: transparent;
-    outline: 2px solid red;
 }
 
 .main-menu_open {
@@ -21,7 +20,6 @@
     width: 50%;
     height: 100%;
     background-color: var(--body-bg-color);
-    
     border-left: 1px solid var(--soft-grey);
 }
 

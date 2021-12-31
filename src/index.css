@@ -40,6 +40,8 @@
   /* GENERAL SIZES */
   --header-height: 64px;
   --header-padding: .5rem;
+  --wrapper-padding: 1rem;
+  --player-height: 5rem;
 }
 
 @media screen and (min-width: 1024px) {

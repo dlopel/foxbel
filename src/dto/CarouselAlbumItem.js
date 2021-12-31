@@ -2,7 +2,7 @@ export default class CarouselAlbumItem {
     constructor(
         albumMediumImage,
         albumBigImage,
-        artistTitle,
+        artistName,
         artisXLImage,
         albumTitle,
         artistFansNumber,
@@ -10,7 +10,7 @@ export default class CarouselAlbumItem {
     ) {
         this.albumMediumImage = albumMediumImage
         this.albumBigImage = albumBigImage
-        this.artistTitle = artistTitle
+        this.artistName = artistName
         this.artisXLImage = artisXLImage
         this.albumTitle = albumTitle
         this.artistFansNumber = artistFansNumber

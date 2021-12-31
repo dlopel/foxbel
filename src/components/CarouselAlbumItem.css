@@ -60,6 +60,11 @@
     font-size: var(--small-font-size);
 }
 
+.album-item__fans {
+    color: #662323;
+    font-size: 0.625rem;   
+}
+
 .album-item__description {
     font-size: var(--smaller-font-size);
     display: none;

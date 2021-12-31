@@ -1,0 +1,14 @@
+.results {
+    position: relative;    
+}
+
+.results__title {
+    color: var(--secondary-color-alt);
+
+}
+
+.results__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}

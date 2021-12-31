@@ -1,0 +1,30 @@
+.results-item {
+    position: relative;
+}
+
+.results-item__image-container {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.results-item__image {
+    display: block;
+    width: 100%;
+}
+
+.results-item__album-title {
+    font-size: var(--small-font-size);
+    line-height: 1.1;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: .2rem;
+    height: 2.2em;
+}
+
+.results-item__artist-name {
+    font-size: var(--smaller-font-size);
+}

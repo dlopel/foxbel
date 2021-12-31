@@ -1,11 +1,9 @@
 .logo {
     height: 100%;
     width: min-content;
-    outline: 2px solid  purple;
 }
 
 .logo__image {
-    outline: 2px solid red;
     display: block;
     height: 100%;
     width: min-content;
@@ -13,13 +11,10 @@
 
 @media only screen and (min-width: 1024px) {
     .logo {
-        height: min-content;
-        width: 100%;
+        
     }
 
     .logo__image {
-        display: block;
-        height: min-content;
-        width: 100%;
+        
     }
 }

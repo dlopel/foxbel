@@ -3,8 +3,8 @@
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: var(--wrapper-padding);
+    padding-right: var(--wrapper-padding);
 }
 
 @media only screen and (min-width: 1024px) {
@@ -12,7 +12,5 @@
         max-width: var(--max-width);
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
     }
 }
