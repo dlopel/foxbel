@@ -107,17 +107,13 @@ export default function App() {
     return newList
   }
 
-  const setIndexToPlay = (idx) => {
-    setTruckIndexToPlay(idx)
-  }
-
   return (
     <AppContext.Provider value={
       {
         carouselItems: appData.carouselItems,
         resultItems: appData.resultItems,
         getTrucksByTitle,
-        setTruckIndexToPlay: setIndexToPlay
+        setTruckIndexToPlay
       }}>
       <MainHeader />
       <Main

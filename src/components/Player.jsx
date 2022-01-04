@@ -14,12 +14,13 @@ export default function Player({ trucks, indexToPlay }) {
     const { setTruckIndexToPlay } = React.useContext(AppContext)
 
     const isReadyToPlay = trucks.length > 0 && indexToPlay >= 0
-    const currentTruck = isReadyToPlay && trucks[indexToPlay]
+    const currentTruck = isReadyToPlay ? trucks[indexToPlay] : {}
 
     const handleNextClick = () => {
         if (isReadyToPlay) {
             if (indexToPlay < (trucks.length - 1)) {
                 setTruckIndexToPlay(indexToPlay + 1)
+                play()
             }
         }
     }
@@ -28,6 +29,7 @@ export default function Player({ trucks, indexToPlay }) {
         if (isReadyToPlay) {
             if (indexToPlay > 0) {
                 setTruckIndexToPlay(indexToPlay - 1)
+                play()
             }
         }
     }
@@ -35,17 +37,14 @@ export default function Player({ trucks, indexToPlay }) {
     const handlePlayToogle = () => {
         if (isPlaying) {
             setIsPlaying(false)
-            audioRef.current.pause()
         } else {
             setIsPlaying(true)
-            audioRef.current.play()
         }
     }
 
-    const handlePlayClick = () => {
+    const play = () => {
         if (!isPlaying) {
             setIsPlaying(true)
-            audioRef.current.play()
         }
     }
 
@@ -57,11 +56,24 @@ export default function Player({ trucks, indexToPlay }) {
         audioRef.current.volume = e.target.value
     }
 
+    React.useEffect(() => {
+        play()
+    }, [indexToPlay])
+
+    React.useEffect(() => {
+        if (isReadyToPlay) {
+            if (isPlaying) {
+                audioRef.current.play()
+            } else {
+                audioRef.current.pause()
+            }
+        }
+    }, [isPlaying])
+
     return (
         <PlayerContext.Provider
             value={{
                 handlePlayToogle,
-                play: handlePlayClick,
                 onPrevClick: handlePrevClick,
                 onNextClick: handleNextClick,
                 onVolumeChange: handleVolumeChange,

@@ -4,7 +4,7 @@ import { PlayerContext } from '../context/PlayerContext'
 
 export default function PlayerNavitagionButton({ isNextButton }) {
 
-    const { onPrevClick, onNextClick, play } = React.useContext(PlayerContext)
+    const { onPrevClick, onNextClick } = React.useContext(PlayerContext)
 
     const handleClick = () => {
         if (isNextButton) { 
@@ -12,7 +12,6 @@ export default function PlayerNavitagionButton({ isNextButton }) {
         } else {
             onPrevClick()
         }
-        play()
     }
 
     return (
