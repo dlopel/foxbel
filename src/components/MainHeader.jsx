@@ -10,7 +10,7 @@ export default function MainHeader() {
     return (
         <header className="main-header">
             <Wrapper classes='main-header__content'>
-                <div>
+                <div className="main-header__logo">
                     <Logo />
                 </div>
                 <div className='main-header__buttons-container'>

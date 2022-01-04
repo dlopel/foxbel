@@ -1,116 +1,24 @@
 .player {
     width: 100%;
-    height: var(--player-height); 
+    height: var(--player-height);
     position: fixed;
     bottom: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: #EB5757;  
-    color: var(--white-color);
-}
-
-.player__wrapper {
-    height: 100%;
+    background-color: var(--player-bg-color);
 }
 
 .player__content {
-    display: grid;
-    padding: .5rem;
-}
-
-.player__audio {
-    display: absolute;
-    visibility: hidden;
-}
-
-.player__album-image-container {
-    display: none;
-}
-
-.player__album-image {
-    
-}
-
-.player__buttons {
-    position: relative;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 2rem;
-    margin-bottom: .5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
-.player__play-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    background-color: #FF7676;
-    font-size: var(--small-font-size);
-}
-
-.player__button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.75rem;
-    height: 1.75rem;
-}
-
-.player__volumen {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-flex;
-    align-items: center;
-}
-
-
-.player__volumen-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    font-size: var(--big-font-size);
-}
-
-.player__volumen-range {
-    color: white;
-    background-color: azure;
-    display: inline-block;
-    width: 80px;
-}
-
-.player__truck{
-    text-align: center;
-}
-
-.player__truck-title {
-    line-height: 1;
-    font-weight: 700;
-    font-size: var(--smaller-font-size);
-    margin-bottom: .1rem;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-}
-
-.player__truck-artist-album {
-    margin-bottom: 0;
-    font-size: 0.625rem;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-}
-
-.player__welcome-text {
+.player__welcome {
+    color: var(--white-color);
     height: 100%;
     display: flex;
     justify-content: center;

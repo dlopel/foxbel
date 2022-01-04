@@ -1,12 +1,13 @@
 .logo {
     height: 100%;
-    width: min-content;
+    width: 100%;
 }
 
 .logo__image {
     display: block;
     height: 100%;
-    width: min-content;
+    width: 100%;
+    object-fit: contain;
 }
 
 @media only screen and (min-width: 1024px) {

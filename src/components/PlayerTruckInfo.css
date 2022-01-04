@@ -1,0 +1,30 @@
+.player-truck {
+    text-align: center;
+    color: var(--white-color);
+}
+
+.player-truck__title {
+    line-height: 1;
+    font-weight: 700;
+    font-size: var(--smaller-font-size);
+    margin-bottom: .1rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.player-truck__name {
+    margin-bottom: 0;
+    font-size: 0.625rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.player-truck__album {
+    display: none;
+}

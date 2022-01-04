@@ -1,0 +1,12 @@
+.player-buttons {
+    color: var(--white-color);
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.player-buttons__mid-buttons {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}

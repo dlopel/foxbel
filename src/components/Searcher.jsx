@@ -14,6 +14,7 @@ export default function Searcher() {
         inputRef.current.focus()
         setIsOpen(true)
     }
+
     const handleClickClose = () => {
         inputRef.current.value = ''
         setIsOpen(false)
@@ -23,6 +24,7 @@ export default function Searcher() {
         e.preventDefault()
         const text = e.target.searcher.value
         if (text) {
+            
             appContext.getTrucksByTitle(text)
         }
     }

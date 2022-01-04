@@ -1,0 +1,22 @@
+.player-volumen {
+    line-height: 1;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+}
+
+.player-volumen__icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--h3-font-size);
+}
+
+.player-volumen__range {
+    display: inline-block;
+    width: calc(100% - 2rem);
+    min-width: 0;
+    max-width: 100px;
+}

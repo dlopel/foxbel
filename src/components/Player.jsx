@@ -2,6 +2,9 @@ import React from 'react'
 import Wrapper from './Wrapper'
 import './Player.css'
 import { AppContext } from '../context/AppContext'
+import PlayerTruckInfo from './PlayerTruckInfo'
+import PlayerButtons from './PlayerButtons'
+import { PlayerContext } from '../context/PlayerContext'
 
 export default function Player({ trucks, indexToPlay }) {
 
@@ -29,13 +32,18 @@ export default function Player({ trucks, indexToPlay }) {
         }
     }
 
-    const handlePlayStopClick = () => {
+    const handlePlayToogle = () => {
         if (isPlaying) {
-            // isPlaying.current = false
             setIsPlaying(false)
             audioRef.current.pause()
         } else {
-            // isPlaying.current = true
+            setIsPlaying(true)
+            audioRef.current.play()
+        }
+    }
+
+    const handlePlayClick = () => {
+        if (!isPlaying) {
             setIsPlaying(true)
             audioRef.current.play()
         }
@@ -46,73 +54,45 @@ export default function Player({ trucks, indexToPlay }) {
     }
 
     const handleVolumeChange = (e) => {
-        console.log(e.target.value)
         audioRef.current.volume = e.target.value
     }
 
     return (
-        <div className='player'>
-            <Wrapper classes='player__wrapper'>
-                {
-                    isReadyToPlay ?
-                        <div className='player__content'>
-                            <audio
-                                className='player__audio'
-                                onEnded={handleEnded}
-                                autoPlay
-                                ref={audioRef}
-                                src={currentTruck.preview}
-                            ></audio>
-                            <div className='player__album-image-container'>
-                                <img
-                                    className='player__album-image'
-                                    src={currentTruck.albumMediumImage}
-                                    alt={`${currentTruck.artistName} - ${currentTruck.albumTitle}`}
+        <PlayerContext.Provider
+            value={{
+                handlePlayToogle,
+                play: handlePlayClick,
+                onPrevClick: handlePrevClick,
+                onNextClick: handleNextClick,
+                onVolumeChange: handleVolumeChange,
+                isPlaying
+            }}
+        >
+            <div className='player'>
+                <Wrapper classes='player__content'>
+                    {
+                        isReadyToPlay ?
+                            <>
+                                <audio
+                                    onEnded={handleEnded}
+                                    autoPlay
+                                    ref={audioRef}
+                                    src={currentTruck.preview}
                                 />
+                                <PlayerButtons />
+                                <PlayerTruckInfo
+                                    albumTitle={currentTruck.albumTitle}
+                                    artistName={currentTruck.artistName}
+                                    titleShort={currentTruck.titleShort}
+                                    albumMediumImage={currentTruck.albumMediumImage}
+                                />
+                            </> :
+                            <div className='player__welcome'>
+                                Busca algo para reproducir
                             </div>
-                            <div className='player__buttons'>
-                                <button className='player__button' onClick={handlePrevClick}>
-                                    <i className="fas fa-step-backward"></i>
-                                </button>
-                                <button className='player__play-button' onClick={handlePlayStopClick}>
-                                    {isPlaying ?
-                                        <i className="fas fa-play"></i> :
-                                        <i class="fas fa-stop"></i>}
-                                </button>
-                                <button className='player__button' onClick={handleNextClick}>
-                                    <i className="fas fa-step-forward"></i>
-                                </button>
-                                <span className='player__volumen'>
-                                    <span className='player__volumen-icon'>
-                                        <i className="fas fa-volume-off"></i>
-                                    </span>
-                                    <input
-                                        className='player__volumen-range'
-                                        type="range"
-                                        id="vol"
-                                        max="1"
-                                        min="0"
-                                        step="0.01"
-                                        onChange={handleVolumeChange}
-                                    />
-                                </span>
-                            </div>
-                            <div className='player__truck'>
-                                <div>
-                                    <h2 className='player__truck-title'>{currentTruck.titleShort}</h2>
-                                </div>
-                                <div>
-                                    <p className='player__truck-artist-album'>
-                                        {currentTruck.artistName} - {currentTruck.albumTitle}
-                                    </p>
-                                </div>
-                            </div>
-                        </div> :
-                        <div className='player__welcome-text'>
-                            Busca algo para reproducir
-                        </div>
-                }
-            </Wrapper>
-        </div>
+                    }
+                </Wrapper>
+            </div>
+        </PlayerContext.Provider>
     )
 }
