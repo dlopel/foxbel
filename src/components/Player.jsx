@@ -15,6 +15,9 @@ export default function Player({ trucks, indexToPlay }) {
 
     const isReadyToPlay = trucks.length > 0 && indexToPlay >= 0
     const currentTruck = trucks[indexToPlay]
+    console.log(trucks)
+    console.log(indexToPlay)
+    console.log(currentTruck)
 
     const handleNextClick = () => {
         if (isReadyToPlay) {
@@ -45,7 +48,6 @@ export default function Player({ trucks, indexToPlay }) {
     const play = () => {
         if (!isPlaying) {
             setIsPlaying(true)
-            audioRef.current.play()
         }
     }
 

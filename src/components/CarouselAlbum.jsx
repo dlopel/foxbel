@@ -24,7 +24,6 @@ export default function CarouselAlbum() {
             />
         </div>
     ))
-    console.log('renderizando carrusel')
 
     return React.useMemo(() => {
         return (

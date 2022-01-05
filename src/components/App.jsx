@@ -27,8 +27,9 @@ export default function App() {
     setIsLoading(true)
     //solo un limite de 40 canciones por busqueda
     const response = await getTrucksByAlbumAndSong(title, 40)
-    
+
     const originalList = response.data
+    console.log(originalList)
     if (originalList.length) {
       const dataForCarousel = await getDataForCarousel(originalList)
       const dataForResults = getDataForResults(originalList)
@@ -43,18 +44,16 @@ export default function App() {
       setIsLoading(false)
       setTruckIndexToPlay(0)
     } else {
-      if (isFirstRendered == false) {
-        //cuando ya no es el 1er render de la app,
-        //es posible que haya resultado vacio
-        setAppData((prevState) => (
-          {
-            ...prevState,
-            truckListLength: 0
-          }
-        ))
-        setIsLoading(false)
-        setTruckIndexToPlay(-1)
-      }
+      //cuando ya no es el 1er render de la app,
+      //es posible que haya resultado vacio
+      setAppData((prevState) => (
+        {
+          ...prevState,
+          truckListLength: 0
+        }
+      ))
+      setIsLoading(false)
+      setTruckIndexToPlay(-1)
     }
 
   }
