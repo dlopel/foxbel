@@ -5,6 +5,7 @@ import './Searcher.css'
 
 export default function Searcher() {
     const [isOpen, setIsOpen] = React.useState(false)
+    const [isSubmited, setIsSubmited] = React.useState(false)
     const inputRef = React.useRef(null)
     const appContext = React.useContext(AppContext)
 
@@ -24,10 +25,19 @@ export default function Searcher() {
         e.preventDefault()
         const text = e.target.searcher.value
         if (text) {
-            
             appContext.getTrucksByTitle(text)
+            setIsSubmited(true)
         }
     }
+
+    React.useEffect(() => {
+        if (isSubmited) {
+            setTimeout(() => {
+                handleClickClose()
+            }, 2000)
+            setIsSubmited(false)
+        }
+    }, [isSubmited])
 
     return (
         <div>

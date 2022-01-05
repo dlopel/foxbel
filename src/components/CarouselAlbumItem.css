@@ -7,6 +7,8 @@
     cursor: pointer;
     position: relative;
     width: 100%;
+    height: min-content;
+    background-color: var(--soft-grey);
 }
 
 .album-item__image {

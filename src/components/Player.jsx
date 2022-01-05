@@ -14,7 +14,7 @@ export default function Player({ trucks, indexToPlay }) {
     const { setTruckIndexToPlay } = React.useContext(AppContext)
 
     const isReadyToPlay = trucks.length > 0 && indexToPlay >= 0
-    const currentTruck = isReadyToPlay ? trucks[indexToPlay] : {}
+    const currentTruck = trucks[indexToPlay]
 
     const handleNextClick = () => {
         if (isReadyToPlay) {
@@ -45,6 +45,7 @@ export default function Player({ trucks, indexToPlay }) {
     const play = () => {
         if (!isPlaying) {
             setIsPlaying(true)
+            audioRef.current.play()
         }
     }
 
@@ -58,14 +59,14 @@ export default function Player({ trucks, indexToPlay }) {
 
     React.useEffect(() => {
         play()
-    }, [indexToPlay])
+    }, [indexToPlay, trucks])
 
     React.useEffect(() => {
         if (isReadyToPlay) {
             if (isPlaying) {
-                audioRef.current.play()
+                if (audioRef.current.paused) audioRef.current.play()
             } else {
-                audioRef.current.pause()
+                if (!audioRef.current.paused) audioRef.current.pause()
             }
         }
     }, [isPlaying])

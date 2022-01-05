@@ -25,8 +25,8 @@ export default function App() {
   const getTrucksByTitle = async (title) => {
     setIsFirstRendered(false)
     setIsLoading(true)
-    //solo un limite de 10 canciones por busqueda
-    const response = await getTrucksByAlbumAndSong(title, 10)
+    //solo un limite de 40 canciones por busqueda
+    const response = await getTrucksByAlbumAndSong(title, 40)
     
     const originalList = response.data
     if (originalList.length) {

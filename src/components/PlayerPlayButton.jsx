@@ -14,7 +14,7 @@ export default function PlayerPlayButton() {
         <button className='play-button' onClick={handleClick}>
             {isPlaying ?
                 <i className="fas fa-play"></i> :
-                <i class="fas fa-stop"></i>}
+                <i className="fas fa-stop"></i>}
         </button>
     )
 }
