@@ -58,7 +58,6 @@ export default function Player({ trucks, indexToPlay }) {
         localStorage.setItem('playerVolume', e.target.value)
     }
     React.useEffect(() => {
-        console.log('asigando volumen')
         if (isReadyToPlay)
             audioRef.current.volume = currentVolume
     }, [isReadyToPlay])

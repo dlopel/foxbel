@@ -14,6 +14,12 @@
     transition: margin .5s;
 }
 
+@media only screen and (min-width: 1300px){
+    .searcher {
+        border-radius: 1rem;
+    }
+}
+
 .searcher_open {
     margin-left: 0;
 }

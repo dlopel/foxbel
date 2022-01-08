@@ -37,14 +37,16 @@ export default function CarouselAlbumItem(
                 </div>
             </div>
             <div className='album-item__content'>
-                <img className='album-item__content-image' src={artisXLImage} alt={artistName} />
-                <div>
+                <div className='album-item__content-image-container'>
+                    <img className='album-item__content-image' src={artisXLImage} alt={artistName} />
+                </div>
+                <div className='album-item__content-text'>
                     <h2 className='album-item__title'>{artistName}{' '}{albumTitle}</h2>
                     <p className='album-item__title-desc'>Lo mejor de {artistName} - <span className='album-item__fans'>{artistFansNumber} seguridores</span></p>
                     <p className='album-item__description'>{artistDescription}</p>
                 </div>
                 <div className='album-item__buttons'>
-                    <Button value='Reproducir' onClick={(e) => handleSetTruckIndex(e, truckIndex)}/>
+                    <Button value='Reproducir' onClick={(e) => handleSetTruckIndex(e, truckIndex)} />
                     <Button value='Seguir' isSecondary />
                 </div>
             </div>

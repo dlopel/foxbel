@@ -30,9 +30,9 @@ export default function CarouselAlbum() {
             <OwlCarousel
                 className='owl-theme'
                 loop
-                margin={10}
+                margin={16}
                 dots
-                responsive={{ 0: { items: 1 } }}
+                responsive={{ 0: { items: 1 }, 768: { items: 2 }, 1024: { items: 1 } }}
                 autoplay
                 autoplayTimeout={3000}
                 autoplayHoverPause

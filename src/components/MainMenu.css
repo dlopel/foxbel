@@ -23,6 +23,24 @@
     border-left: 1px solid var(--soft-grey);
 }
 
+@media only screen and (min-width: 576px) {
+    .main-menu__content {
+        width: 40%;
+    }   
+}
+
+@media only screen and (min-width: 768px) {
+    .main-menu__content {
+        width: 30%;
+    }   
+}
+
+@media only screen and (min-width: 1024px) {
+    .main-menu__content {
+        width: 20%;
+    }   
+}
+
 .main-menu__group {
     margin-bottom: 1rem;
 }

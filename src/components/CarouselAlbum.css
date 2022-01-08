@@ -4,6 +4,20 @@
     left: 80%;
 }
 
+@media only screen and (min-width: 1024px) {
+    .carousel-album__dots {
+        bottom: 20%;
+        left: 55%;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .carousel-album__dots {
+        bottom: 20%;
+        left: 43%;
+    }
+}
+
 .carousel-album__dot {
     display: inline-block;
     background-color: var(--white-color);
