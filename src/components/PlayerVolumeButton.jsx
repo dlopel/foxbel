@@ -4,7 +4,7 @@ import { PlayerContext } from '../context/PlayerContext'
 
 export default function PlayerVolumeButton() {
 
-    const { onVolumeChange } = React.useContext(PlayerContext)
+    const { onVolumeChange, currentVolume } = React.useContext(PlayerContext)
     const handleVolumeChange = (e) => {
         onVolumeChange(e)
     }
@@ -19,6 +19,7 @@ export default function PlayerVolumeButton() {
                 min="0"
                 step="0.01"
                 onChange={handleVolumeChange}
+                defaultValue={currentVolume}
             />
             <span className='player-volumen__icon'>
                 <i className="fas fa-volume-off"></i>

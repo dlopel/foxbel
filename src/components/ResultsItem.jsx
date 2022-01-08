@@ -14,19 +14,22 @@ export default function ResultsItem({
     const handlePlayClick = (e, truckIndex) => {
         setTruckIndexToPlay(truckIndex)
     }
-
+    
     return (
         <article className='results-item'>
+            
             <header className='results-item__image-container'>
-                <a role='button' rel="nofollow" onClick={e => handlePlayClick(e, truckIndex)}>
+                <span role='button' onClick={e => handlePlayClick(e, truckIndex)}>
                     <img
                         className='results-item__image'
                         src={albumMediumImage}
                         alt={albumTitle} />
-                </a>
+                </span>
             </header>
-            <h3 className='results-item__album-title'>{albumTitle}</h3>
-            <p className='results-item__artist-name'>{artistName}</p>
+            <div className='results-item__content'>
+                <h3 className='results-item__album-title'>{albumTitle}</h3>
+                <p className='results-item__artist-name'>{artistName}</p>
+            </div>
         </article>
     )
 }

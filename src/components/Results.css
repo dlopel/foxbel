@@ -1,14 +1,15 @@
 .results {
-    position: relative;    
+    position: relative;
 }
 
 .results__title {
     color: var(--secondary-color-alt);
-
 }
 
 .results__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px;
+    grid-auto-rows: 200px;
     gap: 1rem;
 }

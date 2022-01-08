@@ -1,20 +1,28 @@
+import './Results.css'
 import React from 'react'
 import { AppContext } from '../context/AppContext'
-import './Results.css'
 import ResultsItem from './ResultsItem'
+import LazyLoad from 'react-lazyload'
 
 export default function Results() {
 
     const { resultItems } = React.useContext(AppContext)
-    
+
     const items = resultItems.map((album, idx) => (
-        <ResultsItem
+        <LazyLoad
             key={idx}
-            truckIndex={idx}
-            albumMediumImage={album.albumMediumImage}
-            albumTitle={album.albumTitle}
-            artistName={album.artistName}
-        />
+            once
+            height={'100%'}
+            throttle={300}
+            style={{ height: '100%' }}
+        >
+            <ResultsItem
+                truckIndex={idx}
+                albumMediumImage={album.albumMediumImage}
+                albumTitle={album.albumTitle}
+                artistName={album.artistName}
+            />
+        </LazyLoad>
     ))
 
     return (

@@ -10,14 +10,12 @@ export default function Player({ trucks, indexToPlay }) {
 
     const audioRef = React.useRef(null)
     const [isPlaying, setIsPlaying] = React.useState(true)
+    const currentVolume = localStorage.getItem('playerVolume') || '1'
 
     const { setTruckIndexToPlay } = React.useContext(AppContext)
 
     const isReadyToPlay = trucks.length > 0 && indexToPlay >= 0
     const currentTruck = trucks[indexToPlay]
-    console.log(trucks)
-    console.log(indexToPlay)
-    console.log(currentTruck)
 
     const handleNextClick = () => {
         if (isReadyToPlay) {
@@ -57,7 +55,14 @@ export default function Player({ trucks, indexToPlay }) {
 
     const handleVolumeChange = (e) => {
         audioRef.current.volume = e.target.value
+        localStorage.setItem('playerVolume', e.target.value)
     }
+    React.useEffect(() => {
+        console.log('asigando volumen')
+        if (isReadyToPlay)
+            audioRef.current.volume = currentVolume
+    }, [isReadyToPlay])
+
 
     React.useEffect(() => {
         play()
@@ -80,7 +85,8 @@ export default function Player({ trucks, indexToPlay }) {
                 onPrevClick: handlePrevClick,
                 onNextClick: handleNextClick,
                 onVolumeChange: handleVolumeChange,
-                isPlaying
+                isPlaying,
+                currentVolume
             }}
         >
             <div className='player'>
